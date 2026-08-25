@@ -91,8 +91,10 @@ _SYSTEM_PROMPT = "\n\n".join(
 # ---------------------------------------------------------------------------
 
 _MODEL_LABEL_TO_ENVVAR: dict[str, str] = {
-    "Claude Haiku 4.5": "INFERENCE_PROFILE_ARN_CLAUDE_HAIKU",
     "Amazon Nova Pro": "INFERENCE_PROFILE_ARN_NOVA_PRO",
+    "Amazon Nova Lite": "INFERENCE_PROFILE_ARN_NOVA_LITE",
+    "Amazon Nova 2 Lite": "INFERENCE_PROFILE_ARN_NOVA_2_LITE",
+    "Claude Haiku 4.5": "INFERENCE_PROFILE_ARN_CLAUDE_HAIKU",
 }
 
 

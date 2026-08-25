@@ -15,9 +15,11 @@ ENV BEDROCK_AGENTCORE_MEMORY_ID="hr_agent_mem-AdoG9PFkTC"
 
 ENV BEDROCK_AGENTCORE_MEMORY_NAME="hr_agent_mem"
 
-# Inference profile ARNs (from cdk-outputs.json)
+# Inference profile ARNs (from cdk-outputs.json + list-inference-profiles)
 ENV INFERENCE_PROFILE_ARN_CLAUDE_HAIKU="arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0"
 ENV INFERENCE_PROFILE_ARN_NOVA_PRO="arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.amazon.nova-pro-v1:0"
+ENV INFERENCE_PROFILE_ARN_NOVA_LITE="arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.amazon.nova-lite-v1:0"
+ENV INFERENCE_PROFILE_ARN_NOVA_2_LITE="arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.amazon.nova-2-lite-v1:0"
 
 # Bedrock Knowledge Base for retrieve tool
 ENV KNOWLEDGE_BASE_ID="ITMRYVQRJD"

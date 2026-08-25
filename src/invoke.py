@@ -22,11 +22,15 @@ agentcore_client = boto3.client("bedrock-agentcore", region_name=_REGION)
 
 # BR6.1 chat-frontend: label -> ARN via env var
 # Ordem = ordem do dropdown; primeiro item = default.
-# Claude Haiku 4.5 depende de aprovacao de agreement no Bedrock Marketplace
-# (Anthropic). Habilite em Console > Bedrock > Model access e adicione a linha
-# comentada abaixo de volta ao dict.
+# Modelos precisam ter (a) inference profile na conta, (b) agreement
+# AVAILABLE em `bedrock get-foundation-model-availability`, (c) suporte a
+# tool use no Converse API (a KB retrieve depende disso).
+# Claude Haiku 4.5 esta comentado porque depende de agreement Anthropic no
+# Bedrock Marketplace (habilite em Console > Bedrock > Model access).
 MODEL_LABELS_TO_ARN_ENV: dict[str, str] = {
     "Amazon Nova Pro": "INFERENCE_PROFILE_ARN_NOVA_PRO",
+    "Amazon Nova Lite": "INFERENCE_PROFILE_ARN_NOVA_LITE",
+    "Amazon Nova 2 Lite": "INFERENCE_PROFILE_ARN_NOVA_2_LITE",
     # "Claude Haiku 4.5": "INFERENCE_PROFILE_ARN_CLAUDE_HAIKU",
 }
 
