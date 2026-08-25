@@ -1,0 +1,62 @@
+# AIDLC framework (per-user cursors + machine-local runtime — see AGENTS.md)
+aidlc/active-space
+aidlc/spaces/*/intents/active-intent
+aidlc/.aidlc-clone-id
+aidlc/.aidlc-sessions/
+aidlc/spaces/*/intents/.aidlc-*
+aidlc/spaces/*/intents/*/runtime-graph.json
+aidlc/spaces/*/intents/*/.aidlc-*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Secrets (project.md § Mandated)
+*.pem
+credentials
+*.pfx
+aws-credentials*
+**/secrets/**
+
+# OS / editor noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# CDK
+cdk.out/
+cdk.context.json
+.cdk.staging/
+
+# Node (Kiro tooling)
+node_modules/
+bun.lock
+
+# Credential dumps (NEVER commit) - regra project.md § Mandated
+credenciais*.md
+credenciais*.txt
+credenciais*
+*credenciais*
+sandbox-credentials*
+aws-sandbox-*
+
+# Permitir o template .env.example (nao o .env real)
+!.env.example

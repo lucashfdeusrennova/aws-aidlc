@@ -1,0 +1,18 @@
+{
+  "stage": "code-generation",
+  "unit": "chat-frontend",
+  "version": 1,
+  "writes": [
+    { "path": "frontend/__init__.py" },
+    { "path": "frontend/app.py" },
+    { "path": "src/__init__.py" },
+    { "path": "src/invoke.py" },
+    { "path": "tests/__init__.py" },
+    { "path": "tests/conftest.py" },
+    { "path": "tests/test_invoke.py" },
+    { "path": "pyproject.toml" },
+    { "path": "requirements.txt" },
+    { "path": "requirements-dev.txt" },
+    { "path": ".gitignore" }
+  ]
+}

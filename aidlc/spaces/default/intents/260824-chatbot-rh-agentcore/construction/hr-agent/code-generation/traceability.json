@@ -1,0 +1,20 @@
+{
+  "stage": "code-generation",
+  "unit": "hr-agent",
+  "upstream_ids": ["BR1", "BR2", "BR3", "BR4", "BR5", "BR6", "BR7", "NFR1", "NFR4", "NFR5", "NFR7", "NFR9", "NFR10"],
+  "coverage": [
+    { "id": "BR1", "status": "OK", "target": "agent/agent.py _ROLE_SECTION lista 5 documentos" },
+    { "id": "BR2", "status": "OK", "target": "agent/agent.py 4 secoes concatenadas em _SYSTEM_PROMPT; tests/test_agent.py test_system_prompt_contains_*" },
+    { "id": "BR3", "status": "OK", "target": "agent/agent.py _FALLBACK_SECTION; test_fallback_when_agent_returns_fallback_text" },
+    { "id": "BR4", "status": "OK", "target": "agent/agent.py _LGPD_SECTION; test_lgpd_guardrail_refuses_salary (MUST)" },
+    { "id": "BR5", "status": "OK", "target": "agent/agent.py _TONE_SECTION (2-4 frases, PT-BR)" },
+    { "id": "BR6", "status": "OK", "target": "agent/agent.py _MODEL_LABEL_TO_ENVVAR; test_invoke_unknown_label_raises_keyerror, test_invoke_missing_model_id_raises_keyerror, test_invoke_missing_env_arn_raises_keyerror" },
+    { "id": "BR7", "status": "OK", "target": "agent/agent.py invoke handler stateless (sem cache/estado global); echo de session_id no response; test_lgpd_guardrail_echoes_model_and_session" },
+    { "id": "NFR1", "status": "OK", "target": "agent/agent.py time.perf_counter em torno de agent(prompt); log_event response_ms; scripts/smoke.py mede externamente" },
+    { "id": "NFR4", "status": "OK", "target": "agent/agent.py _LGPD_SECTION + log_event 6 campos fixos; test_log_event_never_contains_prompt_or_response" },
+    { "id": "NFR5", "status": "OK", "target": "infra/stack.py IAM policy least-privilege (2 ARNs bedrock:InvokeModel*, 1 ARN bedrock:Retrieve)" },
+    { "id": "NFR7", "status": "OK", "target": "agent/requirements.txt + requirements.txt + requirements-dev.txt com == pinning" },
+    { "id": "NFR9", "status": "OK", "target": "agent/agent.py fail-fast (sem retry custom); log_event ERROR no except" },
+    { "id": "NFR10", "status": "OK", "target": "agent/agent.py sem estado modulo entre invocacoes (BedrockModel instanciado por invoke)" }
+  ]
+}

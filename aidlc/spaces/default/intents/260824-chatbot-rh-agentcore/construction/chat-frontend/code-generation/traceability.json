@@ -1,0 +1,19 @@
+{
+  "stage": "code-generation",
+  "unit": "chat-frontend",
+  "upstream_ids": ["FR1", "FR2", "FR3", "FR6", "FR8", "FR9", "US1.1", "US1.4", "US1.5", "US1.6", "US1.7", "US4.1"],
+  "coverage": [
+    { "id": "FR1", "status": "OK", "target": "src/invoke.py::ask_agent, frontend/app.py chat_input, agent/agent.py invoke handler" },
+    { "id": "FR2", "status": "OK", "target": "agent/agent.py _SYSTEM_PROMPT (_ROLE_SECTION cobre 5 documentos)" },
+    { "id": "FR3", "status": "OK", "target": "agent/agent.py BedrockModel + retrieve tool" },
+    { "id": "FR6", "status": "OK", "target": "frontend/app.py sidebar selectbox de model_id (US4.1)" },
+    { "id": "FR8", "status": "OK", "target": "src/invoke.py::ask_agent guard 4000 chars (raises ValueError)" },
+    { "id": "FR9", "status": "OK", "target": "src/invoke.py AgentInvocationError; frontend/app.py st.error catch" },
+    { "id": "US1.1", "status": "OK", "target": "test_ask_agent_happy_path, frontend chat happy path" },
+    { "id": "US1.4", "status": "OK", "target": "test_fallback_when_agent_returns_fallback_text; _FALLBACK_SECTION" },
+    { "id": "US1.5", "status": "OK", "target": "test_lgpd_guardrail_refuses_salary (BR4.3 MUST); _LGPD_SECTION" },
+    { "id": "US1.6", "status": "OK", "target": "test_ask_agent_rejects_prompt_over_4000_chars; frontend st.warning" },
+    { "id": "US1.7", "status": "OK", "target": "test_ask_agent_wraps_client_error; frontend AgentInvocationError catch" },
+    { "id": "US4.1", "status": "OK", "target": "frontend/app.py sidebar; test_lgpd_guardrail_echoes_model_and_session valida BR6.2" }
+  ]
+}

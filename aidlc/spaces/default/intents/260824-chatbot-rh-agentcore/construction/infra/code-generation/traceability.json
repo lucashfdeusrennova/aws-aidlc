@@ -1,0 +1,12 @@
+{
+  "stage": "code-generation",
+  "unit": "infra",
+  "upstream_ids": ["FR3", "FR7", "NFR5", "NFR7", "NFR8"],
+  "coverage": [
+    { "id": "FR3", "status": "OK", "target": "infra/stack.py: AgentExecutionRole com bedrock-agentcore.amazonaws.com service principal" },
+    { "id": "FR7", "status": "OK", "target": "infra/stack.py: HrDocsBucket (SSE-S3 + versioning) + KbIngestionRole (S3 read grant)" },
+    { "id": "NFR5", "status": "OK", "target": "infra/stack.py: 3 PolicyStatements na AgentExecutionRole com ARNs especificos, sem Resource: '*'; FrontendInvokePolicy limitada a runtime/* da conta" },
+    { "id": "NFR7", "status": "OK", "target": "requirements-dev.txt: aws-cdk-lib==2.170.0, constructs==10.4.2 (pinning)" },
+    { "id": "NFR8", "status": "OK", "target": "cdk synth pre-deploy documentado no README (project.md Mandated)" }
+  ]
+}

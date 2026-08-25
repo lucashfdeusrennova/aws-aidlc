@@ -1,0 +1,26 @@
+{
+  "stage": "functional-design",
+  "unit": "chat-frontend",
+  "upstream_ids": [
+    "AC1.6.1", "AC1.6.2",
+    "AC1.7.1", "AC1.7.2", "AC1.7.3",
+    "AC1.9.1", "AC1.9.2", "AC1.9.3", "AC1.9.4", "AC1.9.5",
+    "AC4.1.1", "AC4.1.2", "AC4.1.3", "AC4.1.4"
+  ],
+  "coverage": [
+    { "id": "AC1.6.1", "status": "OK", "target": "functional-spec.md § AC1.6.1 workflow + frontend-components.md W7" },
+    { "id": "AC1.6.2", "status": "OK", "target": "functional-spec.md § AC1.6.2 workflow + frontend-components.md W6" },
+    { "id": "AC1.7.1", "status": "OK", "target": "functional-spec.md § AC1.7.1 workflow (belongs to AgentInvoker in src/invoke.py)" },
+    { "id": "AC1.7.2", "status": "OK", "target": "functional-spec.md § AC1.7.2 workflow + frontend-components.md W9" },
+    { "id": "AC1.7.3", "status": "OK", "target": "functional-spec.md § AC1.7.3 workflow (logger inside except block)" },
+    { "id": "AC1.9.1", "status": "OK", "target": "frontend-components.md W4" },
+    { "id": "AC1.9.2", "status": "OK", "target": "frontend-components.md W4 callback step 1" },
+    { "id": "AC1.9.3", "status": "OK", "target": "frontend-components.md W4 callback step 2" },
+    { "id": "AC1.9.4", "status": "OK", "target": "functional-spec.md § AC1.9.4 workflow" },
+    { "id": "AC1.9.5", "status": "OK", "target": "functional-spec.md § AC1.9.5 workflow + frontend-components.md GREETING_MESSAGE constant" },
+    { "id": "AC4.1.1", "status": "OK", "target": "frontend-components.md W3 + MODEL_OPTIONS constant" },
+    { "id": "AC4.1.2", "status": "OK", "target": "frontend-components.md W2 + functional-spec.md § AC4.1.2 workflow" },
+    { "id": "AC4.1.3", "status": "OK", "target": "functional-spec.md § AC4.1.3 (U1 envia label; U2 hr-agent resolve para inference profile ARN via C3 env vars). Verificacao end-to-end de AC4.1.3 e completada em construction/hr-agent/functional-design/" },
+    { "id": "AC4.1.4", "status": "OK", "target": "functional-spec.md § AC4.1.4 workflow (messages preserved, session_id preserved)" }
+  ]
+}

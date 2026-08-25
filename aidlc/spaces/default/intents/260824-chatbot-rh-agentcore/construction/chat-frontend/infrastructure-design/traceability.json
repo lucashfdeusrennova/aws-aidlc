@@ -1,0 +1,45 @@
+{
+  "stage": "infrastructure-design",
+  "unit": "chat-frontend",
+  "upstream_ids": [
+    "NFR1.1.1",
+    "NFR3.2.1",
+    "NFR4.5.1",
+    "NFR5.1.1",
+    "NFR5.2.1",
+    "NFR6.1.1"
+  ],
+  "coverage": [
+    {
+      "id": "NFR1.1.1",
+      "status": "N/A",
+      "target": "unit chat-frontend nao provisiona infraestrutura AWS - o SLI de 1s frontend budget e verificado por scripts/smoke.py contra o AgentCore Runtime provisionado por U3; nenhuma infra deste unit contribui para NFR1.1.1"
+    },
+    {
+      "id": "NFR3.2.1",
+      "status": "N/A",
+      "target": "session_id via uuid4 e comportamento de codigo em C1 (frontend/app.py) - fora de escopo de infraestrutura; N/A neste stage"
+    },
+    {
+      "id": "NFR4.5.1",
+      "status": "OK",
+      "target": "monitoring-design.md § Logs & Tracing (stdout do processo Streamlit; nenhum handler externo, nenhum sink SaaS)"
+    },
+    {
+      "id": "NFR5.1.1",
+      "status": "OK",
+      "target": "infrastructure-specification.md § Shared Infrastructure (AGENT_RUNTIME_ARN consumido via IAM role least-privilege do participante; role especifica de U1 mora em U3)"
+    },
+    {
+      "id": "NFR5.2.1",
+      "status": "OK",
+      "target": "infrastructure-specification.md § Shared Infrastructure (AGENT_RUNTIME_ARN e AWS_REGION via env vars, nunca hardcoded); cicd-pipeline.md § Local checks (ARN audit manual via git grep antes do commit)"
+    },
+    {
+      "id": "NFR6.1.1",
+      "status": "OK",
+      "target": "infrastructure-specification.md § Deployment (Compute=notebook do participante, 1 processo por sessao, sem Networking/Storage compartilhado; Environments=workshop-sandbox unico)"
+    }
+  ],
+  "reverse": []
+}

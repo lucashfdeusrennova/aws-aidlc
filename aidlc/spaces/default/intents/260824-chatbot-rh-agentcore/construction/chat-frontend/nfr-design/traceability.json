@@ -1,0 +1,69 @@
+{
+  "stage": "nfr-design",
+  "unit": "chat-frontend",
+  "upstream_ids": [
+    "NFR1.1.1",
+    "NFR2.1.1",
+    "NFR3.2.1",
+    "NFR4.1.1",
+    "NFR4.3.1",
+    "NFR4.5.1",
+    "NFR5.1.1",
+    "NFR5.2.1",
+    "NFR5.4.1",
+    "NFR6.1.1"
+  ],
+  "coverage": [
+    {
+      "id": "NFR1.1.1",
+      "status": "OK",
+      "target": "performance-design.md D1 (boto3 client module-level) + D2 (retry delegado ao boto3 standard mode) + D4 (sem streaming) + D-Concurrency (rerun sincrono) + D-Log (JSON stdlib sem I/O extra)"
+    },
+    {
+      "id": "NFR2.1.1",
+      "status": "OK",
+      "target": "security-design.md D3 (copy pt-BR deterministico para cada ClientError type) + D4 (st.write nao markdown-unsafe)"
+    },
+    {
+      "id": "NFR3.2.1",
+      "status": "OK",
+      "target": "security-design.md D2 (uuid4 no _clear_conversation + regex UUID validation em src/invoke.py como defense in depth)"
+    },
+    {
+      "id": "NFR4.1.1",
+      "status": "OK",
+      "target": "security-design.md D4 (trust boundary: st.write text-only, sem sanitizacao no frontend; controle upstream em U2)"
+    },
+    {
+      "id": "NFR4.3.1",
+      "status": "OK",
+      "target": "security-design.md D7 (registro explicito do nao-uso de Guardrails + ponto de retorno documentado)"
+    },
+    {
+      "id": "NFR4.5.1",
+      "status": "OK",
+      "target": "security-design.md D5 (log stdout sem handler externo; sem prompt completo em ERROR) + logical-components.md D-Log (formato JSON com session_id via LoggerAdapter, sem dependencia extra)"
+    },
+    {
+      "id": "NFR5.1.1",
+      "status": "OK",
+      "target": "security-design.md D6 (credencial via boto3 chain default; doc runtime alinha profile do participante com role least-privilege)"
+    },
+    {
+      "id": "NFR5.2.1",
+      "status": "OK",
+      "target": "security-design.md D6 (AGENT_RUNTIME_ARN e AWS_REGION lidos de os.environ; sem ARN literal no codigo)"
+    },
+    {
+      "id": "NFR5.4.1",
+      "status": "OK",
+      "target": "security-design.md D6 (nenhum GetSecretValue direto; futuros segredos via CDK {{resolve:secretsmanager:...}} injetados como env var pelo IAM role)"
+    },
+    {
+      "id": "NFR6.1.1",
+      "status": "OK",
+      "target": "logical-components.md D-FailureIsolation (blast radius local ao processo; 1 notebook = 1 processo, sem orquestracao multi-processo)"
+    }
+  ],
+  "reverse": []
+}
