@@ -1,0 +1,6 @@
+{
+  "type": "S3_VECTORS",
+  "s3VectorsConfiguration": {
+    "indexArn": "arn:aws:s3vectors:us-east-1:869520403603:bucket/hr-kb-vectors-869520403603/index/hr-kb-index"
+  }
+}

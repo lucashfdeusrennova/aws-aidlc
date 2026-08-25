@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InvokeEmbeddingModel",
+      "Effect": "Allow",
+      "Action": ["bedrock:InvokeModel"],
+      "Resource": [
+        "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+      ]
+    },
+    {
+      "Sid": "S3VectorsAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3vectors:PutVectors",
+        "s3vectors:GetVectors",
+        "s3vectors:DeleteVectors",
+        "s3vectors:QueryVectors",
+        "s3vectors:ListVectors",
+        "s3vectors:GetIndex",
+        "s3vectors:DescribeIndex"
+      ],
+      "Resource": [
+        "arn:aws:s3vectors:us-east-1:869520403603:bucket/hr-kb-vectors-869520403603",
+        "arn:aws:s3vectors:us-east-1:869520403603:bucket/hr-kb-vectors-869520403603/index/hr-kb-index"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "type": "S3",
+  "s3Configuration": {
+    "bucketArn": "arn:aws:s3:::chatbotrhstack-hrdocsbucketfdf0ae2f-ti4xcqikwqia"
+  }
+}

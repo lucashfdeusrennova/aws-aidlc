@@ -21,9 +21,13 @@ _REGION = os.environ.get("AWS_REGION", "us-east-1")
 agentcore_client = boto3.client("bedrock-agentcore", region_name=_REGION)
 
 # BR6.1 chat-frontend: label -> ARN via env var
+# Ordem = ordem do dropdown; primeiro item = default.
+# Claude Haiku 4.5 depende de aprovacao de agreement no Bedrock Marketplace
+# (Anthropic). Habilite em Console > Bedrock > Model access e adicione a linha
+# comentada abaixo de volta ao dict.
 MODEL_LABELS_TO_ARN_ENV: dict[str, str] = {
-    "Claude Haiku 4.5": "INFERENCE_PROFILE_ARN_CLAUDE_HAIKU",
     "Amazon Nova Pro": "INFERENCE_PROFILE_ARN_NOVA_PRO",
+    # "Claude Haiku 4.5": "INFERENCE_PROFILE_ARN_CLAUDE_HAIKU",
 }
 
 _MAX_PROMPT_LEN = 4000  # NFR4.1.2 - guard primario
@@ -85,9 +89,16 @@ def ask_agent(
         )
     except ClientError as exc:
         logger.error("AgentCore ClientError: %s", exc, exc_info=True)
-        raise AgentInvocationError(
-            f"Falha ao invocar o agente: {exc.response.get('Error', {}).get('Code', 'Unknown')}"
-        ) from exc
+        err = exc.response.get("Error", {})
+        code = err.get("Code", "Unknown")
+        msg = err.get("Message", "")
+        # AccessDenied com aws-marketplace indica agreement Anthropic pendente
+        if code == "AccessDeniedException" and "aws-marketplace" in msg.lower():
+            raise AgentInvocationError(
+                "Modelo bloqueado: falta aceitar o agreement no Bedrock Marketplace "
+                "(Console > Bedrock > Model access)."
+            ) from exc
+        raise AgentInvocationError(f"Falha ao invocar o agente: {code}") from exc
 
     body = response.get("response")
     if body is None:

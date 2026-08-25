@@ -1,0 +1,10 @@
+{
+  "ChatbotRhStack": {
+    "IngestionRoleArn": "arn:aws:iam::869520403603:role/ChatbotRhStack-KbIngestionRole4EEB6888-th16GWBocniD",
+    "AgentExecutionRoleArn": "arn:aws:iam::869520403603:role/ChatbotRhStack-AgentExecutionRole8AD76C36-jLN4qkpjvtib",
+    "InferenceProfileArnClaudeHaiku": "arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "InferenceProfileArnNovaPro": "arn:aws:bedrock:us-east-1:869520403603:inference-profile/us.amazon.nova-pro-v1:0",
+    "FrontendInvokePolicyArn": "arn:aws:iam::869520403603:policy/ChatbotRhStack-FrontendInvokePolicy7D86597C-ZXi6wHNygDJg",
+    "DocsBucketName": "chatbotrhstack-hrdocsbucketfdf0ae2f-ti4xcqikwqia"
+  }
+}

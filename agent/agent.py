@@ -17,12 +17,15 @@ import time
 from datetime import datetime, timezone
 from typing import Any
 
+from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from strands import Agent
 from strands.models import BedrockModel
 from strands_tools import retrieve
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+app = BedrockAgentCoreApp()
 
 
 # ---------------------------------------------------------------------------
@@ -141,6 +144,7 @@ def _classify_outcome(response_text: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+@app.entrypoint
 def invoke(payload: dict[str, Any]) -> dict[str, str]:
     """Handler principal invocado pelo AgentCore Runtime.
 
@@ -200,16 +204,5 @@ def invoke(payload: dict[str, Any]) -> dict[str, str]:
 # ---------------------------------------------------------------------------
 
 
-def handler(event: dict[str, Any], _context: Any = None) -> dict[str, str]:
-    """Entrypoint compativel com AgentCore Runtime (Lambda-style event).
-
-    O AgentCore Runtime pode entregar o payload por:
-    - `event["payload"]` (bytes) - typical AgentCore invocation
-    - `event` diretamente (Strands hosting local)
-    """
-    if isinstance(event, dict) and "payload" in event:
-        raw = event["payload"]
-        payload = json.loads(raw.decode() if isinstance(raw, (bytes, bytearray)) else raw)
-    else:
-        payload = event
-    return invoke(payload)
+if __name__ == "__main__":
+    app.run()
